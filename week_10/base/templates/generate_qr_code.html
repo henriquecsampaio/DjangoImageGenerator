@@ -1,0 +1,21 @@
+{% extends "layout.html" %} {% block content %}
+    <h1>Generate QR Code</h1>
+    <form action="/generate_qr_code" method="POST">
+        {% csrf_token %}
+        <label>QR Code Generation Parameters</label>
+        <br />
+        <label>Height</label>
+        <input type="number" name="height" id="height" required />
+        <br />
+        <label>Width</label>
+        <input type="number" name="width" id="width" required />
+        <br />
+        <label>Value</label>
+        <input type="text" name="value" id="value" required />
+        <br />
+        <input type="submit" value="Generate QR Code" />
+    </form>
+
+    {% if img_url %}
+        <img src="{{img_url}}" alt="Could not genereate" />
+    {% endif %} {% endblock %}

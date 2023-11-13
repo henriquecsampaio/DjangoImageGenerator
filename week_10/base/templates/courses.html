@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Courses</h1>
+
+<div>
+    {% for course in courses %}
+        <div>
+            <h3>Course ID: {{course.id}}</h3>
+            <br>
+            <h3>Course Name: {{course.name}}</h3>
+            <br>
+            <br>
+            <br>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,17 @@
+{% extends "layout.html" %} {% block content %}
+    <h1>Get Dog image</h1>
+    <form action="/get_dog" method="POST">
+        {% csrf_token %}
+        <br />
+        <label>Dog Breed (Leave blank for random)</label>
+        <input type="text" name="breed" id="breed"/>
+        <br />
+        <label>Dog Subreed (Leave blank for random)</label>
+        <input type="text" name="subreed" id="subreed"/>
+        <br />
+        <input type="submit" value="Generate Dog image" />
+    </form>
+
+    {% if img_url %}
+        <img src="{{img_url}}" alt="Could not genereate" />
+    {% endif %} {% endblock %}
